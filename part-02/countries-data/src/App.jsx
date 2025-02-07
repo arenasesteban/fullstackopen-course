@@ -18,12 +18,12 @@ function App() {
         fetchCountries();
     }, []);
 
-    const filteredCountries = !search ? countries : countries.filter(country => country.name.common.toLowerCase().includes(search));
+    const filteredCountries = !search ? countries : countries.filter(country => country.name.common.toLowerCase().includes(search.toLowerCase()));
 
     return (
         <div>
             <Filter search={search} setSearch={setSearch} />
-            <Results search={search} countries={filteredCountries} />
+            <Results search={search} setSearch={setSearch} countries={filteredCountries} />
         </div>
     )
 }
